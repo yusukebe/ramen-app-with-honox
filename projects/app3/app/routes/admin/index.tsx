@@ -31,7 +31,7 @@ export default createRoute((c) => {
     <div>
       <h1>Admin</h1>
       <div>
-        <form method='post'>
+        <form action='/admin' method='post'>
           <div className='form-group'>
             <label htmlFor='name'>Name:</label>
             <input type='text' name='name' id='name' />

@@ -1,15 +1,7 @@
-import { Hono } from 'hono'
+import { createRoute } from 'honox/factory'
 
-const app = new Hono<{
-  Bindings: {
-    DB: D1Database
-  }
-}>()
-
-app.get('/', async (c) => {
+export default createRoute(async (c) => {
   const id = c.req.query('id')
   await c.env.DB.prepare('DELETE FROM shops WHERE id = ?').bind(id).run()
   return c.redirect('/')
 })
-
-export default app
